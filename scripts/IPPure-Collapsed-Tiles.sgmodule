@@ -1,13 +1,15 @@
 #!name=IPPure Collapsed Tiles
-#!desc=通过 IPPure.com 展示当前出口 IP 信息、欺诈评分与原生情况（自 Stash override 转换）
+#!desc=通过 IPPure.com 展示当前出口 IP 信息、欺诈评分与原生情况（带图标版）
 #!category=Panel
 
 [Panel]
-IPPure-IP-Info         = script-name=IPPure-IP-Info, update-interval=600
-IPPure-IP-Fraud-Score  = script-name=IPPure-IP-Fraud-Score, update-interval=600
-IPPure-IP-Native-Check = script-name=IPPure-IP-Native-Check, update-interval=600
+IPPure-IP-Info         = script-name=IPPure-IP-Info, title="IPPure IP 信息", content="点击刷新", icon="network", icon-color="#5AC8FA", update-interval=600
+IPPure-IP-Fraud-Score  = script-name=IPPure-IP-Fraud-Score, title="IPPure IP 风险评分", content="点击刷新", icon="exclamationmark.shield.fill", icon-color="#88A788", update-interval=600
+IPPure-IP-Native-Check = script-name=IPPure-IP-Native-Check, title="IPPure 原生 IP 检查", content="点击刷新", icon="house.fill", icon-color="#88A788", update-interval=600
 
 [Script]
-IPPure-IP-Info         = type=generic, timeout=10, script-path=https://fastly.jsdelivr.net/gh/StashNetworks/misc@main/collapsed-tiles/script/ippure-ip-info.js
-IPPure-IP-Fraud-Score  = type=generic, timeout=10, script-path=https://fastly.jsdelivr.net/gh/StashNetworks/misc@main/collapsed-tiles/script/ippure-ip-fraud-score.js
-IPPure-IP-Native-Check = type=generic, timeout=10, script-path=https://fastly.jsdelivr.net/gh/StashNetworks/misc@main/collapsed-tiles/script/ippure-ip-native-check.js
+# 注意：把下面三个 script-path 替换成你自己托管 ippure-ip-*.js 的 URL
+# 推荐用 GitHub Gist + jsDelivr 加速：https://fastly.jsdelivr.net/gh/<user>/<repo>@<branch>/<path>
+IPPure-IP-Info         = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/TLS853/rule-set/refs/heads/master/scripts/ippure-ip-info.js
+IPPure-IP-Fraud-Score  = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/TLS853/rule-set/refs/heads/master/scripts/ippure-ip-fraud-score.js
+IPPure-IP-Native-Check = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/TLS853/rule-set/refs/heads/master/scripts/ippure-ip-native-check.js
