@@ -1,0 +1,13 @@
+#!name=IPPure Collapsed Tiles
+#!desc=通过 IPPure.com 展示当前出口 IP 信息、欺诈评分与原生情况（自 Stash override 转换）
+#!category=Panel
+
+[Panel]
+IPPure-IP-Info         = script-name=IPPure-IP-Info, update-interval=600
+IPPure-IP-Fraud-Score  = script-name=IPPure-IP-Fraud-Score, update-interval=600
+IPPure-IP-Native-Check = script-name=IPPure-IP-Native-Check, update-interval=600
+
+[Script]
+IPPure-IP-Info         = type=generic, timeout=10, script-path=https://fastly.jsdelivr.net/gh/StashNetworks/misc@main/collapsed-tiles/script/ippure-ip-info.js
+IPPure-IP-Fraud-Score  = type=generic, timeout=10, script-path=https://fastly.jsdelivr.net/gh/StashNetworks/misc@main/collapsed-tiles/script/ippure-ip-fraud-score.js
+IPPure-IP-Native-Check = type=generic, timeout=10, script-path=https://fastly.jsdelivr.net/gh/StashNetworks/misc@main/collapsed-tiles/script/ippure-ip-native-check.js
